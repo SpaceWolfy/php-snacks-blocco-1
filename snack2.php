@@ -7,7 +7,7 @@
 
 <?php 
 
-$name = $_GET['name'];
+/* $name = $_GET['name'];
 $mail = $_GET['mail'];
 $age = $_GET['age'];
 
@@ -19,6 +19,24 @@ if(isset($name) && isset($mail) && isset($age)) {
     echo('accesso negato');
   }
 } else {
+  echo('Inserisci i dati');
+} */
+
+if (key_exists("name", $_GET) && key_exists('mail', $_GET) && key_exists('age', $_GET)) {
+  $name = $_GET['name'];
+  $mail = $_GET['mail'];
+  $age = $_GET['age'];
+
+  if(strlen($name) > 3 && filter_var($mail, FILTER_VALIDATE_EMAIL) && is_numeric($age)) {
+    echo('accesso consentito');
+  } else {
+    echo('accesso negato');
+  }
+
+} else {
+  $name = '';
+  $mail = '';
+  $age = '';
   echo('Inserisci i dati');
 }
 ?> 
