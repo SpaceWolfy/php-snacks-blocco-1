@@ -5,14 +5,19 @@
  <?php
   
   $numbers = [];
+  $randomArray = [];
   
-  for($i= 0; $i < 15; $i++) {
-    $randomNum = rand(1, 30);
+  for($i= 0; $i < 100; $i++) {
+    $randomNum = rand(1, 100);  
+    if(!in_array($randomNum, $randomArray, true)) {
+      $randomArray[] = $randomNum;
+    } 
+  }
 
-    if(!in_array($randomNum, $numbers, true)) {
-      $numbers[] = $randomNum;
-    }
-    
+  for($i= 0; $i < 15; $i++) {
+    if(!in_array($randomArray[$i], $numbers, true)) {
+      $numbers[] = $randomArray[$i];
+    } 
   }
 
   var_dump($numbers)
