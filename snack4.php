@@ -5,14 +5,14 @@
  <?php
   
   $numbers = [];
-  /* $randomArray = [];
-  
-  for($i= 0; $i < 100; $i++) {
-    $randomNum = rand(1, 100);  
-    if(!in_array($randomNum, $randomArray, true)) {
-      $randomArray[] = $randomNum;
+  while(count($numbers) < 15) {
+
+    $randomNum = rand(1, 20);
+
+    if(!in_array($randomNum, $numbers, true)) {
+      $numbers[] = $randomNum;
     } 
-  } */
+  }
  ?>
 
  <!DOCTYPE html>
@@ -26,15 +26,9 @@
  <body>
    <h2>Disposizione di 15 numeri randomici</h2>
    <?php 
-   $i = 0;
-    while(count($numbers) < 15) {
-      $randomNum = rand(1, 100);  
-      if(!in_array($randomNum, $numbers, true)) {
-        $numbers[] = $randomNum;
-      } 
+    for ($i = 0; $i < count($numbers); $i++) {
       echo('<div>' . $numbers[$i] . '</div>');
-      $i++;
-    }
+    } 
   ?>
  </body>
  </html>
