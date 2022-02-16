@@ -62,9 +62,7 @@
   <?php 
     foreach($posts as $x => $val) {
       echo "<h2> Data: $x </h2>";
-      for($y=0; $y < count($val); $y++) {
-        $post = $val[$y];
-
+      foreach($val as $post) {
         echo('<h3>' . $post['title'] . '</h3>');
         echo('<div>'. 'Autore: ' . $post['author'] . '</div>');
         echo('<div>'. 'Testo: ' . $post['text'] . '</div>');
