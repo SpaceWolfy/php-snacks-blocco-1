@@ -27,6 +27,7 @@ if (key_exists("name", $_GET) && key_exists('mail', $_GET) && key_exists('age', 
   $mail = $_GET['mail'];
   $age = $_GET['age'];
 
+  //I nomi scritti in maiuscolo come FILTER_VALIDATE_EMAIL sono detti costanti
   if(strlen($name) > 3 && filter_var($mail, FILTER_VALIDATE_EMAIL) && is_numeric($age)) {
     echo('accesso consentito');
   } else {
@@ -40,3 +41,6 @@ if (key_exists("name", $_GET) && key_exists('mail', $_GET) && key_exists('age', 
   echo('Inserisci i dati');
 }
 ?> 
+
+<!-- l'strpos ci dice in che posizione si trova un pezzo di stringa che sto cercando, 
+potevo risolvere l'es anche con strpos($mail, '@') !== false && strpos($mail, '.') !== false; -->
