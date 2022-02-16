@@ -6,26 +6,47 @@
  -->
 <?php 
   $posts = [
+
     '05/02/2022' => [
-      'title' => 'post 1',
-      'author' => 'Roberto Furetto',
-      'text' => 'Ciao, guarda che spettacolo!'
+      [
+        'title' => 'post 1',
+        'author' => 'Roberto Furetto',
+        'text' => 'Ciao, guarda che spettacolo!'
+      ],
+      [
+        'title' => 'post 1',
+        'author' => 'Roberto Furetto',
+        'text' => 'Ciao, guarda che spettacolo!'
+      ],
     ],
+
     '10/02/2022' => [
+      [
       'title' => 'post 2',
       'author' => 'Roberto Furetto',
       'text' => 'Ciao, guarda che spettacolo parte 2!'
+      ],
+      [
+        'title' => 'post 1',
+        'author' => 'Roberto Furetto',
+        'text' => 'Ciao, guarda che spettacolo!'
+      ],
     ],
+
     '15/02/2022' => [
-      'title' => 'post 3',
+      ['title' => 'post 3',
       'author' => 'Roberto Furetto',
       'text' => 'Ciao, guarda che spettacolo parte 3!'
+      ],
+      [
+        'title' => 'post 1',
+        'author' => 'Roberto Furetto',
+        'text' => 'Ciao, guarda che spettacolo!'
+      ],
     ],
   ];
     
-    
-
-  var_dump($posts);
+ /*  var_dump($posts); */
 ?>
 
 <!DOCTYPE html>
@@ -41,10 +62,29 @@
   <?php 
     foreach($posts as $x => $val) {
       echo "<h2> Data: $x </h2>";
-      echo('<h3>' . $val['title'] . '</h3>');
-      echo('<div>'. 'Autore: ' . $val['author'] . '</div>');
-      echo('<div>'. 'Testo: ' . $val['text'] . '</div>');
+      for($y=0; $y < count($val); $y++) {
+        $post = $val[$y];
+
+        echo('<h3>' . $post['title'] . '</h3>');
+        echo('<div>'. 'Autore: ' . $post['author'] . '</div>');
+        echo('<div>'. 'Testo: ' . $post['text'] . '</div>');
+      };
     }
   ?>
 </body>
 </html>
+
+
+<!-- Svoglimento in classe -->
+<?php
+  $keys= array_keys($posts);
+
+  for($i=0; $i < count($posts); $i++){
+    $key = $keys[$i];
+    $value = $posts[$key];
+
+    for($y=0; $y < count($value); $y++) {
+      $post = $value[$y];
+    }
+  };
+?>
